@@ -1,8 +1,6 @@
 package lw02.prelab;
 
 
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.util.Scanner;
 import java.util.LinkedList;
 import java.util.Queue;
@@ -15,16 +13,14 @@ public class Main {
         Queue<String[]> queue = new LinkedList<>();
         Stack<String[]> failedStack = new Stack<>();
         
-        try (Scanner sc = new Scanner(new File("transactions.txt"))) {
+        Scanner sc = new Scanner(Main.class.getResourceAsStream("transactions.txt"));
             
             while(sc.hasNextLine()){
                 String line = sc.nextLine();
                 String[] transaction = line.split(" ");
                 transactions.add(transaction);
             }
-        } catch (FileNotFoundException e) {
-            System.out.println("transactions.txt not found.");
-        }
+        sc.close();
         
         while (!transactions.isEmpty()) {
             queue.add(transactions.removeFirst());
