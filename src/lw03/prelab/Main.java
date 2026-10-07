@@ -1,6 +1,5 @@
 package lw03.prelab;
 import java.util.Scanner;
-import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
